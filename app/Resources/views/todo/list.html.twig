@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todo list{% endblock %}
+
+{% block body %}
+<table class="table table-striped">
+<th>Id</th>
+<th>Name</th>
+<th>Description</th>
+<th>Done</th>
+{% for todo in todos %}
+<tr>
+<td>{{ todo.id }}</td>
+<td>{{ todo.name }}</td>
+<td>{{ todo.description }}</td>
+<td>
+{% if todo.state %}
+<span class="label label-danger">Pending</span>
+{% else %}
+<span class="label label-success">Done</span>
+{% endif %}
+</td>
+<td>
+<a href="/todo_edit/{{ todo.id }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+<a href="/todo_delete/{{ todo.id }}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

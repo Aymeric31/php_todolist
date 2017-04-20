@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Todo Item{% endblock %}
+
+{% block body %}
+{{ form_start(form) }}
+{{ form_errors(form) }}
+
+<div class="form-group">
+{{ form_row(form.name) }}
+</div>
+<div class="form-group">
+{{ form_row(form.description) }}
+</div>
+
+{{ form_end(form) }}
+{% endblock %}
